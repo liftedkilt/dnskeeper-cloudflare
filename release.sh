@@ -55,3 +55,4 @@ then
 fi
 
 twine upload ./dist/*
+rm ./dist/*
