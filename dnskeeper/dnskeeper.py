@@ -11,7 +11,7 @@ import os
 import re
 import sys
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 CONFIGPATH = os.path.expanduser('~') + '/.cloudflare.cfg'
 ZONES_DIR = ""
@@ -31,6 +31,7 @@ The available dnskeeper commands are:
 	push		Deploy changes to Cloudflare
 	show		Show current state in Cloudflare
 	validate	Test records file for proper formatting
+	version		Display version
 ''')
 
 		parser.add_argument('command', help='Subcommand to run')
@@ -118,6 +119,9 @@ The available dnskeeper commands are:
 		args = parser.parse_args(sys.argv[2:])
 
 		validate_zone(args.domain)
+
+	def version(self):
+		print 'version: ' + __version__
 
 def create_config(args):
 	if args.email:
