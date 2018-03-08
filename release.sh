@@ -33,7 +33,7 @@ sed -i "s/__version__ = \"${currentCodeVersion}\"/__version__ = \"${newVersion}\
 # Create git tag for specified version.
 #
 
-git tag -a newVersion
+git tag -a "${newVersion}"
 
 #
 # Create distribution files.
