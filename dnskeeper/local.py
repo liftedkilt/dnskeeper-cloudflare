@@ -23,9 +23,8 @@ def validate_records(zones_dir, domain_name):
     with open(localZoneConfig) as json_data:
       json.load(json_data)
     
-    print "Records file is valid json."
-    
     return True
+
   except ValueError as error:
     print localZoneConfig + ": invalid json in file: %s" % error
     

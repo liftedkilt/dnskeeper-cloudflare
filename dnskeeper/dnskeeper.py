@@ -118,7 +118,8 @@ The available dnskeeper commands are:
 
 		args = parser.parse_args(sys.argv[2:])
 
-		validate_zone(args.domain)
+		if validate_zone(args.domain) == True:
+			print "Records file is valid json."
 
 	def version(self):
 		print 'version: ' + __version__
@@ -361,5 +362,4 @@ def main():
 def validate_zone(domain_name):
 	valid = local.validate_records(ZONES_DIR, domain_name)
 
-	if not valid:
-		exit()
+	return valid
