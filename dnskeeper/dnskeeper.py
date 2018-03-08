@@ -260,7 +260,7 @@ def push_records(args):
 	# Ensure local records file is valid JSON structure.
 	#
 
-	validate_zone(args.domain_name)
+	validate_zone(args.domain)
 
 	#
 	# Delete records from Cloudflare that are not present locally.
