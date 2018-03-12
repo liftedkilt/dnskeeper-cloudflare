@@ -6,6 +6,12 @@ cd "$( dirname "${BASH_SOURCE[0]}")"
 currentCodeVersion=$(python setup.py --version)
 currentGitTag=$(git tag | tail -n 1 )
 
+if [[ ! $(git diff-index --quiet HEAD --) ]]
+then
+    echo "There are uncommitted changes to the repo. Please commit or stash changes before releasing."
+    exit 1
+fi
+
 read -p "Release will be cut and git tag created based on what is currently committed. Proceed? [y/N]: " -n 1 -r
 echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]
@@ -33,7 +39,13 @@ sed -i "s/__version__ = \"${currentCodeVersion}\"/__version__ = \"${newVersion}\
 # Create git tag for specified version.
 #
 
+git add *
+
+git commit -m "Cuts release ${newVersion}"
+
 git tag -a "${newVersion}"
+
+git push origin master --tags
 
 #
 # Create distribution files.
