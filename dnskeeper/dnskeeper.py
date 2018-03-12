@@ -92,7 +92,7 @@ The available dnskeeper commands are:
 			description='Deploy changes to Cloudflare')
 
 		parser.add_argument('domain')
-		parser.add_argument('-d', '--dry-run', action="store_false", help='simulates the actions that would occur')
+		parser.add_argument('-d', '--dry-run', action="store_true", help='simulates the actions that would occur')
 		parser.add_argument('-o', '--output', choices=['json', 'simple', 'table'], default='table')
 
 		args = parser.parse_args(sys.argv[2:])
