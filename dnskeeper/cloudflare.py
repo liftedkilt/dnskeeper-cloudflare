@@ -2,6 +2,8 @@
 
 import CloudFlare
 import json
+import random
+import string
 
 cf = CloudFlare.CloudFlare()
 
@@ -56,9 +58,6 @@ def update_record(domain_name, record_id, record_data, dry_run=False):
 	if not dry_run:
 		cf.zones.dns_records.put(zone_id, record_id, data=record_data)
 	
-def _compute_random():
-	return ''.join(random.choice(string.ascii_letters + string.digits) for x in range(6))
-
 def _compute_random():
 	return ''.join(random.choice(string.ascii_letters + string.digits) for x in range(6))
 
