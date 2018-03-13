@@ -9,7 +9,7 @@ currentGitTag=$(git tag | tail -n 1 )
 if [[ ! $(git diff-index --quiet HEAD --) ]]
 then
     echo "There are uncommitted changes to the repo. Please commit or stash changes before releasing."
-    exit 1
+    #exit 1
 fi
 
 read -p "Release will be cut and git tag created based on what is currently committed. Proceed? [y/N]: " -n 1 -r

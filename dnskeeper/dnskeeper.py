@@ -11,7 +11,7 @@ import os
 import re
 import sys
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 CONFIGPATH = os.path.expanduser('~') + '/.cloudflare.cfg'
 ZONES_DIR = ""
